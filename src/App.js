@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const Btn = ({ banana }) => {
+const Btn = ({ banana, big = false }) => {
   return (
     <button
       style={{
@@ -9,6 +9,7 @@ const Btn = ({ banana }) => {
         border: 0,
         borderRadius: 10,
         padding: '10px 20px',
+        fontSize: big ? '30px' : '15px',
       }}
     >
       {banana}
@@ -33,8 +34,8 @@ const Btn = ({ banana }) => {
 function App() {
   return (
     <div>
-      <Btn banana={'Save Change'} />
-      <Btn banana={'Confirm'} />
+      <Btn banana={'Save Change'} big={true} />
+      <Btn banana={'Confirm'} big={false} />
     </div>
   );
 }
