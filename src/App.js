@@ -1,29 +1,40 @@
 import React, { useState } from 'react';
 
+const Btn = ({ banana }) => {
+  return (
+    <button
+      style={{
+        backgroundColor: 'tomato',
+        color: 'white',
+        border: 0,
+        borderRadius: 10,
+        padding: '10px 20px',
+      }}
+    >
+      {banana}
+    </button>
+  );
+};
+// const ConfirmBtn = () => {
+//   return (
+//     <button
+//       style={{
+//         backgroundColor: 'tomato',
+//         color: 'white',
+//         border: 0,
+//         borderRadius: 10,
+//         padding: '10px 20px',
+//       }}
+//     >
+//       Confirm
+//     </button>
+//   );
+// };
 function App() {
-  const [count, setCount] = useState(0);
-  function PlusClicking() {
-    setCount(count + 1);
-  }
-  function MinusClicking() {
-    setCount(count - 1);
-  }
-  function ResetClicking() {
-    setCount(0);
-  }
   return (
     <div>
-      <h3>Total Click: {count}</h3>
-      <button id="plusBtn" onClick={PlusClicking}>
-        +
-      </button>
-      <button id="minusBtn" onClick={MinusClicking}>
-        -
-      </button>
-      <br />
-      <button id="resetBtn" onClick={ResetClicking}>
-        RESET
-      </button>
+      <Btn banana={'Save Change'} />
+      <Btn banana={'Confirm'} />
     </div>
   );
 }
