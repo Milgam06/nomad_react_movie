@@ -35,7 +35,7 @@ function App() {
   return (
     <div>
       <Btn banana={'Save Change'} big={true} />
-      <Btn banana={'Confirm'} big={false} />
+      <Btn banana={'Confirm'} big={true} />
     </div>
   );
 }
