@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
+import SecPage from './ConfirmPage';
 
-const Btn = ({ banana, big = false }) => {
+const Btn = ({ text, changeValue }) => {
   return (
     <button
       style={{
@@ -9,10 +10,11 @@ const Btn = ({ banana, big = false }) => {
         border: 0,
         borderRadius: 10,
         padding: '10px 20px',
-        fontSize: big ? '30px' : '15px',
+        fontSize: '16px',
       }}
+      onClick={changeValue}
     >
-      {banana}
+      {text}
     </button>
   );
 };
@@ -32,10 +34,14 @@ const Btn = ({ banana, big = false }) => {
 //   );
 // };
 function App() {
+  const [Value, setValue] = useState('Save Change');
+  const changeValue = () => {
+    setValue('Revert Change');
+  };
   return (
     <div>
-      <Btn banana={'Save Change'} big={true} />
-      <Btn banana={'Confirm'} big={true} />
+      <Btn text={Value} changeValue={changeValue} />
+      <Btn text={'Confirm'} />
     </div>
   );
 }
