@@ -1,47 +1,35 @@
-import React, { useState } from 'react';
-import SecPage from './ConfirmPage';
+import React, { useState, useEffect } from 'react';
 
-const Btn = ({ text, changeValue }) => {
-  return (
-    <button
-      style={{
-        backgroundColor: 'tomato',
-        color: 'white',
-        border: 0,
-        borderRadius: 10,
-        padding: '10px 20px',
-        fontSize: '16px',
-      }}
-      onClick={changeValue}
-    >
-      {text}
-    </button>
-  );
-};
-// const ConfirmBtn = () => {
-//   return (
-//     <button
-//       style={{
-//         backgroundColor: 'tomato',
-//         color: 'white',
-//         border: 0,
-//         borderRadius: 10,
-//         padding: '10px 20px',
-//       }}
-//     >
-//       Confirm
-//     </button>
-//   );
-// };
 function App() {
-  const [Value, setValue] = useState('Save Change');
-  const changeValue = () => {
-    setValue('Revert Change');
+  const [toDo, setToDo] = useState('');
+  const [toDos, setToDos] = useState([]);
+  const Changing = (event) => {
+    setToDo(event.target.value);
   };
+
+  const onSubmit = (event) => {
+    event.preventDefault();
+    if (toDo === '') {
+      return;
+    }
+    setToDos((currentArray) => [toDo, ...currentArray]);
+    setToDo('');
+  };
+  useEffect(() => {
+    console.log(toDos);
+  }, [toDos]);
   return (
     <div>
-      <Btn text={Value} changeValue={changeValue} />
-      <Btn text={'Confirm'} />
+      <h1>My toDo {toDos.len}</h1>
+      <form onSubmit={onSubmit}>
+        <input
+          onChange={Changing}
+          value={toDo}
+          type="text"
+          placeholder="Write you to do...."
+        ></input>
+        <button>Add ToDo..</button>
+      </form>
     </div>
   );
 }
