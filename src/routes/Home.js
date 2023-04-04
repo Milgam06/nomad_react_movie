@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Route } from 'react-router-dom';
-import Movie from './components/movie';
+import Movie from '../components/movie';
 
 function Home() {
   const KEY = '455b10de026d03f0f6c3f5ebded6fb60';
