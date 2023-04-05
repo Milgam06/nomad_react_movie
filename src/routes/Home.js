@@ -1,38 +1,38 @@
-import React, { useState, useEffect } from 'react';
-import { Route } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 import Movie from '../components/movie';
 
 function Home() {
-  const KEY = '455b10de026d03f0f6c3f5ebded6fb60';
-  const DATE = '20230331';
   const [loading, setLoading] = useState(true);
   const [movies, setMovies] = useState([]);
   const getMovies = async () => {
     const json = await (
-      await fetch(
-        `http://kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json?key=${KEY}&targetDt=${DATE}`,
-      )
+      await fetch(`https://yts.mx/api/v2/list_movies.json?minimum_rating=8.8&sort_by=year`)
     ).json();
-    setMovies(json.boxOfficeResult.dailyBoxOfficeList);
+    setMovies(json.data.movies);
     setLoading(false);
   };
   useEffect(() => {
     getMovies();
   }, []);
-
   return (
     <div>
       {loading ? (
         <h1>Loading...</h1>
       ) : (
         <div>
-          {movies.map((movie) => (
-            <Movie key={movie.rnum} movieNm={movie.movieNm} openDt={movie.openDt} />
+          {movies.map((movie, i) => (
+            <Movie
+              key={i}
+              id={movie.id}
+              coverImg={movie.medium_cover_image}
+              title={movie.title}
+              summary={movie.summary}
+              genres={movie.genres}
+            />
           ))}
         </div>
       )}
     </div>
   );
 }
-
 export default Home;
