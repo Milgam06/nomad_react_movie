@@ -2,10 +2,12 @@ import React, { useState, useEffect } from 'react';
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 import Home from './routes/Home';
 import Detail from './routes/Detail';
+import Navigation from './components/Navigation';
 
 function App() {
   return (
     <Router>
+      <Navigation />
       <Routes>
         <Route path="/hello" element={<h1>hello</h1>} />
       </Routes>
@@ -13,7 +15,7 @@ function App() {
         <Route path="/movie/:id" element={<Detail />} />
       </Routes>
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Home />} e />
       </Routes>
     </Router>
   );
