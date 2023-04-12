@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import styles from './Detail.module.css';
 
 function Detail() {
   const { id } = useParams();
@@ -16,7 +17,7 @@ function Detail() {
   }, []);
   return (
     <div>
-      <img src={gmovie.medium_cover_image} alt="img"></img>
+      <img className={styles.imaging} src={gmovie.large_cover_image} alt="img"></img>
       <h1>{gmovie.title}</h1>
       <h3>{gmovie.description_full}</h3>
     </div>
