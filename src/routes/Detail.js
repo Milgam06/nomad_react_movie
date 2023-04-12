@@ -8,16 +8,17 @@ function Detail() {
     const json = await (
       await fetch(`https://yts.mx/api/v2/movie_details.json?movie_id=${id}`)
     ).json();
-    console.log(json);
     setGmovie(json.data.movie);
+    console.log(json);
   };
   useEffect(() => {
     getMovie();
   }, []);
   return (
     <div>
-      <h1>{gmovie.title}</h1>
       <img src={gmovie.medium_cover_image} alt="img"></img>
+      <h1>{gmovie.title}</h1>
+      <h3>{gmovie.description_full}</h3>
     </div>
   );
 }
