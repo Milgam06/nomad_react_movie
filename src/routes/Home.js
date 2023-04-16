@@ -16,7 +16,7 @@ function Home() {
     getMovies();
   }, []);
   return (
-    <div className={styles.screen}>
+    <div className={styles.container}>
       {loading ? (
         <div className={styles.loading}>
           <span>Loading...</span>

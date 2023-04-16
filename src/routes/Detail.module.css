@@ -1,7 +1,38 @@
 .imaging {
-  border-radius: 10px;
+  width: 500px;
+  border-radius: 15px;
+  position: absolute;
+  left: 70px;
+  top: 150px;
 }
 
 .title {
-  display: grid;
+  font-size: 60px;
+  font-weight: bolder;
+  position: absolute;
+  left: 600px;
+  top: 150px;
+}
+
+.genre {
+  line-height: 10px;
+  font-size: 15px;
+  position: absolute;
+  left: 650px;
+  top: 300px;
+}
+
+.summaryBox {
+  font-weight: lighter;
+  display: flex;
+  flex-wrap: wrap;
+  position: absolute;
+  width: 1000px;
+  left: 650px;
+  top: 500px;
+}
+
+.summaryContent {
+  font-size: 32px;
+  font-weight: lighter;
 }

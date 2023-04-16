@@ -1,13 +1,13 @@
-.screen {
+.container {
   height: 100%;
   display: flex;
   justify-content: center;
 }
 
 .loading {
+  display: flex;
   width: 100%;
   height: 90vh;
-  display: flex;
   justify-content: center;
   align-items: center;
   font-size: 50px;
@@ -16,7 +16,7 @@
 
 .mov {
   display: grid;
-  grid-template-columns: repeat(2, minmax(400px, 1fr));
+  grid-template-columns: repeat(3, minmax(1vw, 1fr));
   grid-gap: 100px;
   padding: 50px;
   width: 80%;
