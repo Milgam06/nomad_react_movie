@@ -7,9 +7,11 @@ function Home() {
   const [movies, setMovies] = useState([]);
   const getMovies = async () => {
     const json = await (
-      await fetch(`https://yts.mx/api/v2/list_movies.json?minimum_rating=8.8&sort_by=year`)
+      await fetch(
+        `https://api.themoviedb.org/3/movie/now_playing?api_key=8a34e9ed74095c8677249958ec8262f7&language=en-US&page=1`,
+      )
     ).json();
-    setMovies(json.data.movies);
+    setMovies(json.results);
     setLoading(false);
   };
   useEffect(() => {
@@ -24,7 +26,12 @@ function Home() {
       ) : (
         <div className={styles.mov}>
           {movies.map((movie, i) => (
-            <Movie key={i} id={movie.id} coverImg={movie.medium_cover_image} title={movie.title} />
+            <Movie
+              key={i}
+              id={movie.id}
+              coverImg={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+              title={movie.original_title}
+            />
           ))}
         </div>
       )}

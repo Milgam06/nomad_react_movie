@@ -6,7 +6,7 @@ function Movie({ coverImg, title, summary, genres, key, id }) {
   return (
     <div>
       <Link className={styles.linkText} to={`/movie/${id}`}>
-        <img src={coverImg} alt={title} />
+        <img className={styles.Image} src={coverImg} alt={title} />
         <h2>{title}</h2>
       </Link>
     </div>

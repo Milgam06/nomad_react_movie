@@ -1,4 +1,10 @@
 .linkText {
   color: white;
   text-decoration: none;
+  text-align: center;
+}
+
+.Image {
+  width: 300px;
+  border-radius: 5px;
 }
