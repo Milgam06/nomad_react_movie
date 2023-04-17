@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import Movie from '../components/movie';
 import styles from './Home.module.css';
 import { useParams } from 'react-router-dom';
+import PageControl from '../components/PageControl';
 
 function Home() {
   const { pg } = useParams();
@@ -18,6 +19,7 @@ function Home() {
   };
   useEffect(() => {
     getMovies();
+    console.log(pg);
   }, []);
   return (
     <div className={styles.container}>
@@ -37,6 +39,7 @@ function Home() {
           ))}
         </div>
       )}
+      <PageControl />
     </div>
   );
 }
