@@ -9,13 +9,16 @@ function App() {
     <Router>
       <Navigation />
       <Routes>
+        <Route path="/" element={<Home />} />
+      </Routes>
+      <Routes>
         <Route path="/hello" element={<h1>hello</h1>} />
       </Routes>
       <Routes>
         <Route path="/movie/:id" element={<Detail />} />
       </Routes>
       <Routes>
-        <Route path="/" element={<Home />} e />
+        <Route path="/page/:pg" element={<Home />}></Route>
       </Routes>
     </Router>
   );

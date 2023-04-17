@@ -10,10 +10,13 @@ function Detail() {
   // 자 고치는 방법
   const getMovie = async () => {
     const json = await (
-      await fetch(`https://yts.mx/api/v2/movie_details.json?movie_id=${id}`)
+      await fetch(
+        `https://api.themoviedb.org/3/movie/${id}?api_key=8a34e9ed74095c8677249958ec8262f7&language=en-US`,
+      )
     ).json();
-    setGmovie(json.data.movie);
+    setGmovie(json);
     setLoading(false);
+    console.log(json);
   };
   useEffect(() => {
     getMovie();
@@ -24,15 +27,19 @@ function Detail() {
         <h1>Loading</h1>
       ) : (
         <>
-          <img className={styles.imaging} src={gmovie.medium_cover_image} alt="img"></img>
+          <img
+            className={styles.imaging}
+            src={`https://image.tmdb.org/t/p/w500${gmovie.poster_path}`}
+            alt="img"
+          ></img>
           <h1 className={styles.title}>{gmovie.title}</h1>
           <h4 className={styles.genre}>
             {gmovie.genres.map((item) => (
-              <span>{item} | </span>
+              <span>{item.name} | </span>
             ))}
           </h4>
           <div className={styles.summaryBox}>
-            <h3 className={styles.summaryContent}>{gmovie.description_full}</h3>
+            <h3 className={styles.summaryContent}>{gmovie.overview}</h3>
           </div>
         </>
       )}
